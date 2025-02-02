@@ -1,0 +1,4 @@
+displayName = Vanilla Calamity Dodges
+author = TacoConKvass
+version = 1.0.0
+modReferences = CalamityMod
