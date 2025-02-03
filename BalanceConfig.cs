@@ -31,4 +31,14 @@ public class BalanceConfig : ModConfig {
 	[Range(0, 1f)]
 	[DefaultValue(.04f)]
 	public float SpiderArmorDodgeChancePerPiece;
+
+	[Header("Buffs")]
+	[Range(0, 1f)]
+	[DefaultValue(.08f)]
+	public float DodgeBuffDodgeChance;
+
+	[Header("Prefix")]
+	[Range(0, 1f)]
+	[DefaultValue(1f)]
+	public float DodgyPrefixDodgeChance;
 }

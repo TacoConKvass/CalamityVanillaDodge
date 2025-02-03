@@ -1,12 +1,36 @@
 Mods: {
 	CalamityVanillaDodge: {
-		Configs: {
+        
+        GrantsDodge: Grants a chance to dodge enemy attacks
+        DodgeChanceLine: This dodge has a {0}% chance to occur
+        DodgeChanceOnDash: " with a {0}% chance"
+        DodgyPrefix: +{0}% chance to dodge enemy attacks
+
+        Buffs: {
+	        DodgeBuff: {
+		        DisplayName: Dodgy
+		        Description: You feel dodgy
+	        }
+        }
+
+        Items: {
+	        DodgePotion: {
+		        DisplayName: Dodge Potion
+		        Tooltip: Improves chance to dodge enemy attacks
+	        }
+        }
+
+        Prefixes.DodgyPrefix.DisplayName: Dodgy
+		
+        Configs: {
 			BalanceConfig: {
 				DisplayName: Balance Config
 
 				Headers: {
 					Accessories: Accessories
-					Armor: Armor Header
+					Armor: Armor
+					Buffs: Buffs
+					Prefix: Prefix
 				}
 
 				ScarfDodgeChance: {
@@ -36,6 +60,16 @@ Mods: {
 
 				SpiderArmorDodgeChancePerPiece: {
 					Label: Spider Armor Dodge Chance Per Piece
+					Tooltip: ""
+				}
+
+				DodgeBuffDodgeChance: {
+					Label: Dodge Buff Dodge Chance
+					Tooltip: ""
+				}
+
+				DodgyPrefixDodgeChance: {
+					Label: Dodgy Prefix Dodge Chance
 					Tooltip: ""
 				}
 			}

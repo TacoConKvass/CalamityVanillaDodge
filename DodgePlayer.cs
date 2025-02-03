@@ -9,7 +9,7 @@ public class DodgePlayer : ModPlayer {
 
 	public override void ResetEffects() => DodgeChance = 0f;
 
-	public override bool FreeDodge(Player.HurtInfo info) {
+	public override bool ConsumableDodge(Player.HurtInfo info) {
 		if (Main.rand.NextFloat() < DodgeChance && Player.whoAmI == Main.myPlayer) {
 			Player.NinjaDodge();
 			return true;
