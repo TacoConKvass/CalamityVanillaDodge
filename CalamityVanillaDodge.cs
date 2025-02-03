@@ -13,13 +13,7 @@ using CalamityMod.CalPlayer.Dashes;
 namespace CalamityVanillaDodge;
 
 public class CalamityVanillaDodge : Mod {
-	public class DodgeChance {
-		public static float Scarf = 0.1f;
-		public static float EclipseMirror = 0.15f;
-		public static float AbyssMirror = 0.1f;
-	}
-
-	public ILHook[] HookList = [
+	public ILHook[] ILHookList = [
 		Cal_CounterScarfChance,
 		Cal_ConsumableDodge,
 		RemoveCooldownAdd("CounterScarfDodge", 3, BindingFlags.NonPublic | BindingFlags.Instance),
