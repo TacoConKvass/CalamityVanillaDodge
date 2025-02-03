@@ -9,6 +9,9 @@ using Terraria.ModLoader;
 using System.Reflection;
 using System;
 using CalamityMod.CalPlayer.Dashes;
+using CalamityMod.Items;
+using System.Collections.Generic;
+using Terraria.ID;
 
 namespace CalamityVanillaDodge;
 
@@ -22,7 +25,8 @@ public class CalamityVanillaDodge : Mod {
 	];
 	
 	public override void Load() {
-		foreach (ILHook hook in HookList) hook.Apply();
+		foreach (ILHook hook in ILHookList) hook.Apply();
+		Cal_VanillaDodgeTooltips.Apply();
 		IL_Player.Hurt_PlayerDeathReason_int_int_refHurtInfo_bool_bool_int_bool_float_float_float -= ILChanges.DodgeMechanicAdjustments;
 		IL_Player.Hurt_PlayerDeathReason_int_int_refHurtInfo_bool_bool_int_bool_float_float_float += (ILContext il) => {
 			ILCursor cursor = new ILCursor(il);
@@ -36,11 +40,12 @@ public class CalamityVanillaDodge : Mod {
 	}
 
 	public override void Unload() {
-		foreach (ILHook hook in HookList) hook.Undo();
+		foreach (ILHook hook in ILHookList) hook.Undo();
+		Cal_VanillaDodgeTooltips.Undo();
 	}
 
 	public static ILHook Cal_ConsumableDodge = new ILHook(
-		typeof(CalamityPlayer).GetMethod("ConsumableDodge", BindingFlags.Public | BindingFlags.Instance)!,
+		typeof(CalamityPlayer).GetMethod("ConsumableDodge", BindingFlags.Public | BindingFlags.Instance),
 		(ILContext il) => {
 			ILCursor cursor = new ILCursor(il);
 
@@ -51,9 +56,9 @@ public class CalamityVanillaDodge : Mod {
 				cursor.EmitDelegate((bool flag) => false);
 
 			if (cursor.TryGotoNext(MoveType.After, i => i.MatchLdfld<CalamityPlayer>("eclipseMirror"))) 
-				cursor.EmitDelegate((bool value) => value && Main.rand.NextFloat() < DodgeChance.EclipseMirror);
+				cursor.EmitDelegate((bool value) => value && Main.rand.NextFloat() < ModContent.GetInstance<BalanceConfig>().EclipseMirrorDodgeChance);
 			if (cursor.TryGotoNext(MoveType.After, i => i.MatchLdfld<CalamityPlayer>("abyssalMirror")))
-				cursor.EmitDelegate((bool value) => value && Main.rand.NextFloat() < DodgeChance.AbyssMirror);
+				cursor.EmitDelegate((bool value) => value && Main.rand.NextFloat() < ModContent.GetInstance<BalanceConfig>().AbyssalMirrorDodgeChance);
 		}, 
 		false
 	);
@@ -67,7 +72,16 @@ public class CalamityVanillaDodge : Mod {
 				i => i.MatchCall<CounterScarfDash>("get_ID"),
 				i => i.MatchCall<String>("op_Equality"))
 			) 
-				cursor.EmitDelegate((bool value) => value && Main.rand.NextFloat() < DodgeChance.Scarf);
+				cursor.EmitDelegate((bool value) => value && Main.rand.NextFloat() < ModContent.GetInstance<BalanceConfig>().ScarfDodgeChance);
+		},
+		false
+	);
+
+	public static Hook Cal_VanillaDodgeTooltips = new Hook(
+		typeof(CalamityGlobalItem).GetMethod("ModifyVanillaTooltips", BindingFlags.NonPublic | BindingFlags.Static),
+		(Action<Item, IList<TooltipLine>> orig, Item item, IList<TooltipLine> tooltips) => {
+			if (item.type == ItemID.BrainOfConfusion || item.type == ItemID.BlackBelt || item.type == ItemID.MasterNinjaGear) return;
+			orig(item, tooltips);
 		},
 		false
 	);
