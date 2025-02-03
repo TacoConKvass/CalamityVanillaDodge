@@ -1,1 +1,6 @@
-Modify this file with a description of your mod.
+Do you not like having your dodges on cooldown?
+Are you an RNG enjoyer?
+
+Great! Then this mod is for you!
+All guaranteed dodges have been turned into RNG dependent ones, with many having configurable chances in the server side config.
+This mod also introduces a Dodge potion and a new prefix - Dodgy - both being configurable in the mods config.
