@@ -18,8 +18,8 @@ public class DodgyPrefix : ModPrefix {
 	public override void ModifyValue(ref float valueMult) => valueMult += .1f;
 
 	public override IEnumerable<TooltipLine> GetTooltipLines(Item item) {
-		yield return new TooltipLine(Mod, "DodgePrefix", 
-			Language.GetTextValue("Mods.CalamityVanillaDodge.DodgyPrefix").FormatWith(DodgeChance * 100)
-		);
+		yield return new TooltipLine(Mod, "DodgePrefix", Language.GetTextValue("Mods.CalamityVanillaDodge.DodgyPrefix").FormatWith(DodgeChance * 100)) { 
+			IsModifier = true
+		};
 	}
 }

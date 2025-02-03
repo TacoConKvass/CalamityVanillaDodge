@@ -1,28 +1,27 @@
 Mods: {
 	CalamityVanillaDodge: {
-        
-        GrantsDodge: Grants a chance to dodge enemy attacks
-        DodgeChanceLine: This dodge has a {0}% chance to occur
-        DodgeChanceOnDash: " with a {0}% chance"
-        DodgyPrefix: +{0}% chance to dodge enemy attacks
+		GrantsDodge: Grants a chance to dodge enemy attacks
+		DodgeChanceLine: This dodge has a {0}% chance to occur
+		DodgeChanceOnDash: " with a {0}% chance"
+		DodgyPrefix: +{0}% chance to dodge enemy attacks
 
-        Buffs: {
-	        DodgeBuff: {
-		        DisplayName: Dodgy
-		        Description: You feel dodgy
-	        }
-        }
+		Buffs: {
+			DodgeBuff: {
+				DisplayName: Dodgy
+				Description: You feel dodgy
+			}
+		}
 
-        Items: {
-	        DodgePotion: {
-		        DisplayName: Dodge Potion
-		        Tooltip: Improves chance to dodge enemy attacks
-	        }
-        }
+		Items: {
+			DodgePotion: {
+				DisplayName: Dodge Potion
+				Tooltip: Improves chance to dodge enemy attacks
+			}
+		}
 
-        Prefixes.DodgyPrefix.DisplayName: Dodgy
-		
-        Configs: {
+		Prefixes.DodgyPrefix.DisplayName: Dodgy
+
+		Configs: {
 			BalanceConfig: {
 				DisplayName: Balance Config
 

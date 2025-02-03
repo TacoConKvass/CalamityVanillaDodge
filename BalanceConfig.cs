@@ -39,6 +39,6 @@ public class BalanceConfig : ModConfig {
 
 	[Header("Prefix")]
 	[Range(0, 1f)]
-	[DefaultValue(1f)]
+	[DefaultValue(.1f)]
 	public float DodgyPrefixDodgeChance;
 }
