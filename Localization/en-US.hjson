@@ -1,0 +1,44 @@
+Mods: {
+	CalamityVanillaDodge: {
+		Configs: {
+			BalanceConfig: {
+				DisplayName: Balance Config
+
+				Headers: {
+					Accessories: Accessories
+					Armor: Armor Header
+				}
+
+				ScarfDodgeChance: {
+					Label: Scarf Dodge Chance
+					Tooltip: ""
+				}
+
+				AbyssalMirrorDodgeChance: {
+					Label: Abyssal Mirror Dodge Chance
+					Tooltip: ""
+				}
+
+				EclipseMirrorDodgeChance: {
+					Label: Eclipse Mirror Dodge Chance
+					Tooltip: ""
+				}
+
+				NinjaArmorDodgeChancePerPiece: {
+					Label: Ninja Armor Dodge Chance Per Piece
+					Tooltip: ""
+				}
+
+				CrystalAssassinArmorDodgeChancePerPiece: {
+					Label: Crystal Assassin Armor Dodge Chance Per Piece
+					Tooltip: ""
+				}
+
+				SpiderArmorDodgeChancePerPiece: {
+					Label: Spider Armor Dodge Chance Per Piece
+					Tooltip: ""
+				}
+			}
+		}
+	}
+}
